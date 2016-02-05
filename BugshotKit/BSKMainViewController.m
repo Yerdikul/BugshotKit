@@ -288,7 +288,7 @@ static UIImage *rotateIfNeeded(UIImage *src);
     UIImage *screenshot = self.includeScreenshotToggle.on ? (BugshotKit.sharedManager.annotatedImage ?: BugshotKit.sharedManager.snapshotImage) : nil;
     if (log && ! log.length) log = nil;
     
-    NSString *appNameString = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    NSString *appNameString = [[NSBundle.mainBundle infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
     NSString *appVersionString = [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
 
     size_t size;
